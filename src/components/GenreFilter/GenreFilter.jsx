@@ -1,3 +1,4 @@
+import "./GenreFilter.css";
 export default function GenreFilter({ genres, selected, onChange }) {
   return (
     <div className="genre-filter" role="group" aria-label="Filter by genre">

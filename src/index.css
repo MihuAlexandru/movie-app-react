@@ -1,9 +1,24 @@
+/* ===============================
+   THEME TOKENS & GLOBAL SETTINGS
+   =============================== */
+
+/* Merged :root — keeping your design tokens + second file’s rendering prefs */
 :root {
+  /* Design tokens (from file 1) */
+  --bg: #0f1115;
+  --panel: #171a20;
+  --text: #e8eaf0;
+  --muted: #a1a5b2;
+  --primary: #4f8cff;
+  --secondary: #6b7280;
+  --border: #2a2f3a;
+
+  /* Global typography & rendering (from file 2) */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: light dark; /* allows OS theme awareness */
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -11,6 +26,33 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   BASE ELEMENTS
+   =============================== */
+
+/* Consolidated body:
+   - Keep the flexible, viewport-based layout from file 2
+   - Theme colors come from tokens in :root
+   - App-level width/padding moved to .app to avoid forcing global layout */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* Apply themed background & text color from file 1 */
+  background: var(--bg);
+  color: var(--text);
+  justify-content: center;
+
+  /* If you want to constrain the entire page instead, move max-width/padding here */
 }
 
 a {
@@ -22,19 +64,12 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Buttons (merged rules) */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +89,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Light scheme override from file 2 */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -65,4 +101,112 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* ===============================
+   APP STRUCTURE & COMPONENTS
+   =============================== */
+
+.app {
+  /* From file 1: specific app width */
+  width: 1280px;
+
+  /* From file 1 body (moved here): constrain layout inside the app */
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  /* If you want centered text globally in the app, keep this.
+     Otherwise, remove and set per-section. */
+  text-align: center;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   BUTTONS (COMPONENT-LEVEL)
+   =============================== */
+
+/* Merged .btn styles from both files:
+   - keep themed border/background from file 1
+   - preserve rounded corners & padding from both
+   - ensure consistent cursor */
+.btn {
+  border: 1px solid var(--border, #2a2f3a);
+  background: var(--panel, #171a20);
+  color: var(--text, #e8eaf0);
+  padding: 0.5rem 0.75rem; /* unified padding */
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    color 0.25s;
+}
+
+/* Active and variant styles */
+.btn--active {
+  background: var(--primary, #4f8cff);
+  border-color: var(--primary, #4f8cff);
+  color: white;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn--secondary {
+  background: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+/* ===============================
+   STATES & UTILITIES
+   =============================== */
+
+.app-loading,
+.empty-state,
+.error-state {
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer */
+.app-footer {
+  margin-top: 2rem;
+  color: var(--muted);
 }

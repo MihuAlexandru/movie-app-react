@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 export default function NavBar({ watchlistCount = 0 }) {
   return (

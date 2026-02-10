@@ -1,4 +1,5 @@
 import SortButton from "./SortButton";
+import "./SortSection.css";
 
 export default function SortControls({ sort, onChange }) {
   return (

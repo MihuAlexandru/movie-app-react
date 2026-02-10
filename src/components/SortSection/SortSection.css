@@ -1,0 +1,9 @@
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sort-label {
+  color: var(--muted, #a1a5b2);
+  margin-right: 0.25rem;
+}

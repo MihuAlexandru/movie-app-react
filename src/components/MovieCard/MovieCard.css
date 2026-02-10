@@ -1,0 +1,36 @@
+.movie-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie-card__media img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card__body {
+  padding: 0.75rem;
+}
+.movie-card__title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.movie-card__meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.movie-card__actions {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}

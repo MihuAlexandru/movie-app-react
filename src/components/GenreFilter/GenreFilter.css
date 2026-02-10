@@ -1,0 +1,18 @@
+.genre-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.chip {
+  background: transparent;
+  color: var(--text, #e8eaf0);
+  border: 1px solid var(--border, #2a2f3a);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip--active {
+  background: var(--primary, #4f8cff);
+  border-color: var(--primary, #4f8cff);
+  color: white;
+}

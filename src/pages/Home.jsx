@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
-import MovieList from "../components/MovieList";
-import SearchBar from "../components/SearchBar";
-import GenreFilter from "../components/GenreFilter";
-import SortControls from "../components/SortControl";
+import MovieList from "../components/MovieList/MovieList";
+import GenreFilter from "../components/GenreFilter/GenreFilter";
+import SortControls from "../components/SortSection/SortSection";
 import ErrorState from "../components/ErrorState";
 import EmptyState from "../components/EmptyState";
+import SearchBar from "../components/Searchbar/SearchBar";
 
 export default function Home({
   movies,

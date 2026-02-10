@@ -1,3 +1,4 @@
+import "./MovieCard.css";
 export default function MovieCard({
   movie,
   inWatchlist,

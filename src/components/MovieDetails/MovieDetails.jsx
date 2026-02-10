@@ -1,3 +1,5 @@
+import "./MovieDetails.css";
+
 export default function MovieDetails({
   movie,
   hasWatch,
@@ -10,32 +12,26 @@ export default function MovieDetails({
   const imgSrc = `/images/${image}`;
 
   return (
-    <div className="movie-details">
+    <div>
       <div className="movie-details__header">
         <img
+          className="movie-details__poster"
           src={imgSrc}
           alt={`${title} poster`}
-          style={{
-            width: 160,
-            height: 240,
-            objectFit: "cover",
-            borderRadius: 8,
-            marginRight: 16,
-          }}
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
         <div>
-          <h3 style={{ margin: "0 0 .5rem 0" }}>{title}</h3>
-          <p style={{ margin: 0, opacity: 0.85 }}>
+          <h3 className="movie-details__title">{title}</h3>
+          <p className="movie-details__meta">
             Genre: <strong>{genre}</strong>
           </p>
-          <p style={{ margin: ".25rem 0 0 0", opacity: 0.85 }}>
+          <p className="movie-details__meta movie-details__meta--spaced">
             Rating: <strong>⭐ {rating}</strong>
           </p>
         </div>
       </div>
 
-      <div style={{ marginTop: "1rem", display: "flex", gap: ".5rem" }}>
+      <div className="movie-details__actions">
         <button
           className="btn btn--primary"
           onClick={() => onToggleWatch?.(id)}

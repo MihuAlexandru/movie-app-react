@@ -1,13 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
-import "./App.css";
+import "./index.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { fetchMovies } from "./api/moviesApi";
 import Home from "./pages/Home";
 import Watchlist from "./pages/Watchlist";
 import useWatchlist from "./hooks/useWatchList";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
-import MovieDetails from "./components/MovieDetails";
+import MovieDetails from "./components/MovieDetails/MovieDetails";
 
 export default function App() {
   const [status, setStatus] = useState("idle");

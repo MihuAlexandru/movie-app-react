@@ -1,0 +1,36 @@
+.movie-details__header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.movie-details__poster {
+  width: 160px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.movie-details__title {
+  margin: 0 0 0.5rem 0;
+}
+
+.movie-details__meta {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.movie-details__meta--spaced {
+  margin: 0.25rem 0 0 0;
+}
+
+.movie-details__actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Optional utility if you decide to toggle class instead of inline style on error */
+.hidden {
+  display: none !important;
+}

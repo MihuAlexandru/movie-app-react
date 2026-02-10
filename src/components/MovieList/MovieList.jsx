@@ -1,4 +1,5 @@
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard/MovieCard";
+import "./MovieList.css";
 
 export default function MovieList({
   movies,
