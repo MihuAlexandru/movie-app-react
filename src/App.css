@@ -1,0 +1,229 @@
+:root {
+  --bg: #0f1115;
+  --panel: #171a20;
+  --text: #e8eaf0;
+  --muted: #a1a5b2;
+  --primary: #4f8cff;
+  --secondary: #6b7280;
+  --border: #2a2f3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family:
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Arial,
+    "Noto Sans";
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.genre-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.chip {
+  background: transparent;
+  color: var(--text, #e8eaf0);
+  border: 1px solid var(--border, #2a2f3a);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip--active {
+  background: var(--primary, #4f8cff);
+  border-color: var(--primary, #4f8cff);
+  color: white;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sort-label {
+  color: var(--muted, #a1a5b2);
+  margin-right: 0.25rem;
+}
+.btn {
+  border: 1px solid var(--border, #2a2f3a);
+  background: var(--panel, #171a20);
+  color: var(--text, #e8eaf0);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn--active {
+  background: var(--primary, #4f8cff);
+  border-color: var(--primary, #4f8cff);
+  color: white;
+}
+
+.searchbar {
+  position: relative;
+}
+.searchbar input {
+  width: 100%;
+  padding: 0.75rem 2.25rem 0.75rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+.searchbar-clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.app-loading,
+.empty-state,
+.error-state {
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin-bottom: 0.5rem;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--primary);
+  color: white;
+}
+.btn--secondary {
+  background: var(--secondary);
+  color: white;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  color: var(--muted);
+}
+
+.movie-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie-card__media img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card__body {
+  padding: 0.75rem;
+}
+.movie-card__title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.movie-card__meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.movie-card__actions {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app {
+  width: 1280px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel, #171a20);
+  border-bottom: 1px solid var(--border, #2a2f3a);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.nav__brand {
+  font-weight: 700;
+}
+.nav__links {
+  display: flex;
+  gap: 1rem;
+}
+.nav__links a {
+  color: var(--text, #e8eaf0);
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+.nav__links a.active {
+  background: var(--primary, #4f8cff);
+  color: white;
+}

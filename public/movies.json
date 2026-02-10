@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "title": "Dark Storm",
+    "image": "1.jpg",
+    "genre": "drama",
+    "rating": "8.3",
+    "description": "A troubled detective confronts the ghosts of his past as a devastating storm traps him with a dangerous fugitive."
+  },
+  {
+    "id": 2,
+    "title": "Whisper of Fate",
+    "image": "2.jpg",
+    "genre": "fantasy",
+    "rating": "7.7",
+    "description": "A young oracle discovers her visions are being manipulated and embarks on a quest to reclaim control over her destiny."
+  },
+  {
+    "id": 3,
+    "title": "Beyond the Edge",
+    "image": "3.jpg",
+    "genre": "horror",
+    "rating": "6.3",
+    "description": "A group of explorers crosses into an uncharted realm where reality dissolves and nightmares take physical form."
+  },
+  {
+    "id": 4,
+    "title": "Lost in Shadows",
+    "image": "4.jpg",
+    "genre": "action",
+    "rating": "9.3",
+    "description": "A rogue agent hunts a mysterious assassin who seems capable of vanishing into thin air—literally."
+  },
+  {
+    "id": 5,
+    "title": "Echoes of Power",
+    "image": "5.jpg",
+    "genre": "fantasy",
+    "rating": "6.9",
+    "description": "A once-mighty mage must reclaim her lost powers before a rising empire enslaves the magical realms."
+  },
+  {
+    "id": 6,
+    "title": "Grim Reckoning",
+    "image": "6.jpg",
+    "genre": "drama",
+    "rating": "8.4",
+    "description": "An ex-con returns home seeking redemption, but the family he wronged forces him to confront a harsher truth."
+  },
+  {
+    "id": 7,
+    "title": "Fury's Flight",
+    "image": "7.jpg",
+    "genre": "action",
+    "rating": "9.8",
+    "description": "After a betrayal within an elite strike force, a pilot goes rogue to expose a dangerous military conspiracy."
+  },
+  {
+    "id": 8,
+    "title": "Path of the Forgotten",
+    "image": "8.jpg",
+    "genre": "action",
+    "rating": "7.2",
+    "description": "A mercenary with no memory of his past uncovers a hidden society that believes he is the key to their survival."
+  },
+  {
+    "id": 9,
+    "title": "Nightmare's Threshold",
+    "image": "9.jpg",
+    "genre": "horror",
+    "rating": "1.7",
+    "description": "When a cursed mirror brings a town's fears to life, a skeptic must face horrors he refuses to believe in."
+  },
+  {
+    "id": 10,
+    "title": "Eternal Hunt",
+    "image": "10.jpg",
+    "genre": "fantasy",
+    "rating": "7.5",
+    "description": "A legendary hunter chases an immortal beast across shifting realms as the barrier between worlds collapses."
+  },
+  {
+    "id": 11,
+    "title": "Legacy of the Void",
+    "image": "11.jpg",
+    "genre": "action",
+    "rating": "8.5",
+    "description": "A skilled operative races to stop a paramilitary group from weaponizing technology stolen from a secret research lab."
+  },
+  {
+    "id": 12,
+    "title": "Shadow's Crescent",
+    "image": "12.jpg",
+    "genre": "horror",
+    "rating": "7.5",
+    "description": "A sleepy village becomes the hunting ground of a creature that only appears during the thinnest sliver of the moon."
+  },
+  {
+    "id": 13,
+    "title": "Crimson Dawn",
+    "image": "13.jpg",
+    "genre": "fantasy",
+    "rating": "8.4",
+    "description": "An exiled warrior discovers a prophecy linking her bloodline to an ancient force capable of reshaping the world."
+  },
+  {
+    "id": 14,
+    "title": "Silent Kingdom",
+    "image": "14.jpg",
+    "genre": "fantasy",
+    "rating": "6.5",
+    "description": "A prince born without a voice must convince rival kingdoms to unite before a forgotten evil rises again."
+  },
+  {
+    "id": 15,
+    "title": "Mystic Rite",
+    "image": "15.jpg",
+    "genre": "fantasy",
+    "rating": "9.8",
+    "description": "A forbidden ritual grants a young scholar immense power, but each spell brings her closer to losing her humanity."
+  },
+  {
+    "id": 16,
+    "title": "Reign of the Lost",
+    "image": "16.jpg",
+    "genre": "horror",
+    "rating": "9.1",
+    "description": "A rescue team enters a remote island where an ancient plague revives the dead with minds intact and vengeance burning."
+  },
+  {
+    "id": 17,
+    "title": "Timeless Myth",
+    "image": "17.jpg",
+    "genre": "drama",
+    "rating": "4.0",
+    "description": "A reclusive novelist struggles to return to writing when characters from his unfinished book begin appearing in real life."
+  },
+  {
+    "id": 18,
+    "title": "Oath of the Fallen",
+    "image": "18.jpg",
+    "genre": "fantasy",
+    "rating": "6.3",
+    "description": "An elite knight breaks a sacred vow and must redeem himself by protecting the very kingdom that cast him out."
+  },
+  {
+    "id": 19,
+    "title": "Veil of Night",
+    "image": "19.jpg",
+    "genre": "drama",
+    "rating": "9.5",
+    "description": "A grieving musician navigates love, loss, and unexpected fame as he uncovers secrets behind his partner's final days."
+  },
+  {
+    "id": 20,
+    "title": "Guardians of Twilight",
+    "image": "20.jpg",
+    "genre": "horror",
+    "rating": "7.4",
+    "description": "A team of paranormal investigators faces a phenomenon where sunset triggers violent manifestations from another realm."
+  }
+]
