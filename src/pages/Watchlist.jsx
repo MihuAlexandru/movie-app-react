@@ -1,10 +1,8 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import MovieList from "../components/MovieList";
 import ErrorState from "../components/ErrorState";
 import EmptyState from "../components/EmptyState";
 import { Link } from "react-router-dom";
-import MovieDetails from "../components/MovieDetails";
-import Modal from "../components/Modal/Modal";
 
 export default function Watchlist({
   movies,
@@ -14,12 +12,8 @@ export default function Watchlist({
   watchlistIds,
   hasWatch,
   onToggleWatch,
+  onOpenMovie,
 }) {
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const openMovie = (movie) => setSelectedMovie(movie);
-  const closeModal = () => setSelectedMovie(null);
-
   const list = useMemo(
     () => movies.filter((m) => watchlistIds.includes(m.id)),
     [movies, watchlistIds],
@@ -28,7 +22,7 @@ export default function Watchlist({
   if (status === "loading") {
     return (
       <div className="app-loading">
-        <div className="spinner" aria-hidden="true"></div>
+        <div className="spinner"></div>
         <p>Loading movies…</p>
       </div>
     );
@@ -56,21 +50,8 @@ export default function Watchlist({
         movies={list}
         isInWatchlist={hasWatch}
         onToggleWatchlist={onToggleWatch}
-        onOpenMovie={openMovie}
+        onOpenMovie={onOpenMovie}
       />
-      <Modal
-        isOpen={!!selectedMovie}
-        title={selectedMovie?.title || "Movie details"}
-        onClose={closeModal}
-        closeOnBackdrop={true}
-      >
-        <MovieDetails
-          movie={selectedMovie}
-          hasWatch={hasWatch}
-          onToggleWatch={onToggleWatch}
-          onClose={closeModal}
-        />
-      </Modal>
       <div style={{ marginTop: "1rem" }}>
         <Link to="/" className="btn btn--primary">
           Back to Home
