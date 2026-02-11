@@ -21,13 +21,10 @@ export default function useWatchlist() {
   }, [ids]);
 
   const has = (id) => ids.includes(id);
-  const add = (id) =>
-    setIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
-  const remove = (id) => setIds((prev) => prev.filter((x) => x !== id));
   const toggle = (id) =>
     setIds((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
 
-  return { ids, has, add, remove, toggle };
+  return { ids, has, toggle };
 }

@@ -1,10 +1,4 @@
-/* ===============================
-   THEME TOKENS & GLOBAL SETTINGS
-   =============================== */
-
-/* Merged :root — keeping your design tokens + second file’s rendering prefs */
 :root {
-  /* Design tokens (from file 1) */
   --bg: #0f1115;
   --panel: #171a20;
   --text: #e8eaf0;
@@ -13,12 +7,11 @@
   --secondary: #6b7280;
   --border: #2a2f3a;
 
-  /* Global typography & rendering (from file 2) */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark; /* allows OS theme awareness */
+  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -32,14 +25,6 @@
   box-sizing: border-box;
 }
 
-/* ===============================
-   BASE ELEMENTS
-   =============================== */
-
-/* Consolidated body:
-   - Keep the flexible, viewport-based layout from file 2
-   - Theme colors come from tokens in :root
-   - App-level width/padding moved to .app to avoid forcing global layout */
 body {
   margin: 0;
   display: flex;
@@ -47,12 +32,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  /* Apply themed background & text color from file 1 */
   background: var(--bg);
   color: var(--text);
   justify-content: center;
-
-  /* If you want to constrain the entire page instead, move max-width/padding here */
 }
 
 a {
@@ -69,7 +51,6 @@ h1 {
   line-height: 1.1;
 }
 
-/* Buttons (merged rules) */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -89,7 +70,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Light scheme override from file 2 */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -103,21 +83,11 @@ button:focus-visible {
   }
 }
 
-/* ===============================
-   APP STRUCTURE & COMPONENTS
-   =============================== */
-
 .app {
-  /* From file 1: specific app width */
   width: 1280px;
-
-  /* From file 1 body (moved here): constrain layout inside the app */
   max-width: 1350px;
   margin: 0 auto;
   padding: 2rem;
-
-  /* If you want centered text globally in the app, keep this.
-     Otherwise, remove and set per-section. */
   text-align: center;
 }
 
@@ -135,14 +105,6 @@ button:focus-visible {
   margin-bottom: 1rem;
 }
 
-/* ===============================
-   BUTTONS (COMPONENT-LEVEL)
-   =============================== */
-
-/* Merged .btn styles from both files:
-   - keep themed border/background from file 1
-   - preserve rounded corners & padding from both
-   - ensure consistent cursor */
 .btn {
   border: 1px solid var(--border, #2a2f3a);
   background: var(--panel, #171a20);
@@ -156,7 +118,6 @@ button:focus-visible {
     color 0.25s;
 }
 
-/* Active and variant styles */
 .btn--active {
   background: var(--primary, #4f8cff);
   border-color: var(--primary, #4f8cff);
@@ -174,10 +135,6 @@ button:focus-visible {
   color: white;
   border-color: var(--secondary);
 }
-
-/* ===============================
-   STATES & UTILITIES
-   =============================== */
 
 .app-loading,
 .empty-state,
@@ -205,7 +162,6 @@ button:focus-visible {
   }
 }
 
-/* Footer */
 .app-footer {
   margin-top: 2rem;
   color: var(--muted);

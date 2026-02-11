@@ -20,6 +20,7 @@ export default function App() {
 
   useEffect(() => {
     let mounted = true;
+
     async function load() {
       setStatus("loading");
       setError(null);
@@ -34,6 +35,7 @@ export default function App() {
         setStatus("error");
       }
     }
+
     load();
     return () => {
       mounted = false;
