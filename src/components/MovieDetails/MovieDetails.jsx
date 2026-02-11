@@ -1,14 +1,9 @@
 import "./MovieDetails.css";
 
-export default function MovieDetails({
-  movie,
-  hasWatch,
-  onToggleWatch,
-  onClose,
-}) {
+export default function MovieDetails({ movie, hasWatch, onToggleWatch }) {
   if (!movie) return null;
 
-  const { id, title, image, genre, rating } = movie;
+  const { id, title, image, genre, rating, description } = movie;
   const imgSrc = `/images/${image}`;
 
   return (
@@ -23,10 +18,13 @@ export default function MovieDetails({
         <div>
           <h3 className="movie-details__title">{title}</h3>
           <p className="movie-details__meta">
-            Genre: <strong>{genre}</strong>
+            <strong> Genre: </strong> {genre}
           </p>
           <p className="movie-details__meta movie-details__meta--spaced">
-            Rating: <strong>⭐ {rating}</strong>
+            <strong> Rating: </strong>⭐ {rating}
+          </p>
+          <p className="movie-details__meta movie-details__meta--spaced">
+            <strong> Description: </strong> {description}
           </p>
         </div>
       </div>
@@ -37,10 +35,6 @@ export default function MovieDetails({
           onClick={() => onToggleWatch?.(id)}
         >
           {hasWatch?.(id) ? "Remove from Watchlist" : "Add to Watchlist"}
-        </button>
-
-        <button className="btn" onClick={onClose}>
-          Close
         </button>
       </div>
     </div>

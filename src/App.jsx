@@ -106,7 +106,6 @@ export default function App() {
           movie={selectedMovie}
           hasWatch={has}
           onToggleWatch={toggle}
-          onClose={closeMovie}
         />
       </Modal>
 
