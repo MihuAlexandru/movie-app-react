@@ -1,5 +1,7 @@
 .searchbar {
   position: relative;
+  flex: 1 1 320px;
+  min-width: 220px;
 }
 .searchbar input {
   width: 100%;

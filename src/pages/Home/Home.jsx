@@ -1,10 +1,11 @@
 import { useMemo, useState } from "react";
-import MovieList from "../components/MovieList/MovieList";
-import GenreFilter from "../components/GenreFilter/GenreFilter";
-import SortControls from "../components/SortSection/SortSection";
-import ErrorState from "../components/ErrorState";
-import EmptyState from "../components/EmptyState";
-import SearchBar from "../components/Searchbar/SearchBar";
+import MovieList from "../../components/MovieList/MovieList";
+import GenreFilter from "../../components/GenreFilter/GenreFilter";
+import SortControls from "../../components/SortSection/SortSection";
+import ErrorState from "../../components/ErrorState";
+import EmptyState from "../../components/EmptyState";
+import SearchBar from "../../components/Searchbar/SearchBar";
+import "./Home.css";
 
 export default function Home({
   movies,
@@ -73,12 +74,12 @@ export default function Home({
           onChange={setQuery}
           placeholder="Search by title"
         />
+        <SortControls sort={sort} onChange={setSort} />
         <GenreFilter
           genres={genres}
           selected={selectedGenre}
           onChange={setSelectedGenre}
         />
-        <SortControls sort={sort} onChange={setSort} />
       </section>
 
       {filteredAndSorted.length > 0 ? (
@@ -99,4 +100,3 @@ export default function Home({
     </>
   );
 }
-``;

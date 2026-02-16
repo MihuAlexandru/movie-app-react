@@ -1,0 +1,7 @@
+.app-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}

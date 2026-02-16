@@ -1,9 +1,9 @@
 import { useMemo } from "react";
-import MovieList from "../components/MovieList/MovieList";
-import ErrorState from "../components/ErrorState";
-import EmptyState from "../components/EmptyState";
+import MovieList from "../../components/MovieList/MovieList";
+import ErrorState from "../../components/ErrorState";
+import EmptyState from "../../components/EmptyState";
 import { Link } from "react-router-dom";
-
+import "./Watchlist.css";
 export default function Watchlist({
   movies,
   status,
@@ -45,14 +45,14 @@ export default function Watchlist({
 
   return (
     <>
-      <h2 style={{ margin: "0 0 1rem 0" }}>My Watchlist</h2>
+      <h2 className="watchlist-title">My Watchlist</h2>
       <MovieList
         movies={list}
         isInWatchlist={hasWatch}
         onToggleWatchlist={onToggleWatch}
         onOpenMovie={onOpenMovie}
       />
-      <div style={{ marginTop: "1rem" }}>
+      <div className="back-home">
         <Link to="/" className="btn btn--primary">
           Back to Home
         </Link>

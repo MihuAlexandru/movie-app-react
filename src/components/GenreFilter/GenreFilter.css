@@ -2,6 +2,7 @@
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  flex: 0 1 auto;
 }
 .chip {
   background: transparent;
@@ -15,4 +16,9 @@
   background: var(--primary, #4f8cff);
   border-color: var(--primary, #4f8cff);
   color: white;
+}
+@media (max-width: 600px) {
+  .genre-filter {
+    flex: 1 1 100%;
+  }
 }

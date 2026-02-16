@@ -1,9 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
-import "./index.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { fetchMovies } from "./api/moviesApi";
-import Home from "./pages/Home";
-import Watchlist from "./pages/Watchlist";
+import Home from "./pages/Home/Home";
+import Watchlist from "./pages/Watchlist/Watchlist";
 import useWatchlist from "./hooks/useWatchList";
 import NavBar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
@@ -13,7 +12,6 @@ export default function App() {
   const [status, setStatus] = useState("idle");
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const { ids: watchlist, has, toggle } = useWatchlist();
@@ -62,7 +60,6 @@ export default function App() {
   return (
     <div className="app">
       <NavBar watchlistCount={watchlist.length} />
-
       <Routes>
         <Route
           path="/"
@@ -95,7 +92,6 @@ export default function App() {
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-
       <Modal
         isOpen={!!selectedMovie}
         title={selectedMovie?.title || "Movie details"}
@@ -108,7 +104,6 @@ export default function App() {
           onToggleWatch={toggle}
         />
       </Modal>
-
       <footer className="app-footer">
         <small>Watchlist is saved locally in your browser.</small>
       </footer>
