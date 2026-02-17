@@ -1,5 +1,11 @@
 import { useEffect, useState, useCallback } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { fetchMovies } from "./api/moviesApi";
 import Home from "./pages/Home/Home";
 import Watchlist from "./pages/Watchlist/Watchlist";
@@ -57,10 +63,22 @@ export default function App() {
 
   const openMovie = useCallback((movie) => setSelectedMovie(movie), []);
 
+  const location = useLocation();
+
   const closeMovie = useCallback(() => {
     setSelectedMovie(null);
-    navigate(-1);
-  }, [navigate]);
+
+    const fromPath = location.state?.from;
+    const isMovieDetail = /^\/movies\/\d+$/.test(location.pathname);
+
+    if (isMovieDetail && fromPath) {
+      navigate(fromPath);
+    } else if (isMovieDetail) {
+      navigate("/movies");
+    } else {
+      navigate(-1);
+    }
+  }, [navigate, location.pathname, location.state]);
 
   return (
     <div className="app">
@@ -83,7 +101,11 @@ export default function App() {
           <Route
             path="/movies/:id"
             element={
-              <MovieDetailPage movies={movies} onOpenMovie={openMovie} />
+              <MovieDetailPage
+                status={status}
+                movies={movies}
+                onOpenMovie={openMovie}
+              />
             }
           />
           <Route

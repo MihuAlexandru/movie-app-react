@@ -102,7 +102,11 @@ export default function Home({
           movies={filteredAndSorted}
           isInWatchlist={hasWatch}
           onToggleWatchlist={onToggleWatch}
-          onOpenMovie={(movie) => navigate(`/movies/${movie.id}`)}
+          onOpenMovie={(movie) =>
+            navigate(`/movies/${movie.id}`, {
+              state: { from: location.pathname + location.search },
+            })
+          }
         />
       ) : (
         <EmptyState

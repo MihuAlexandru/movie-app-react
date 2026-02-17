@@ -7,7 +7,14 @@
   --secondary: #6b7280;
   --border: #2a2f3a;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(
+    --font-base,
+    system-ui,
+    Avenir,
+    Helvetica,
+    Arial,
+    sans-serif
+  );
   line-height: 1.5;
   font-weight: 400;
 
@@ -20,8 +27,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Fluid base font scaling across devices */
   font-size: clamp(15px, 1.2vw + 0.6rem, 18px);
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
 
 * {

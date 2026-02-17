@@ -4,6 +4,7 @@ import ErrorState from "../../components/ErrorState";
 import EmptyState from "../../components/EmptyState";
 import { Link, useNavigate } from "react-router-dom";
 import "./Watchlist.css";
+
 export default function Watchlist({
   movies,
   status,
@@ -50,7 +51,11 @@ export default function Watchlist({
         movies={list}
         isInWatchlist={hasWatch}
         onToggleWatchlist={onToggleWatch}
-        onOpenMovie={(movie) => navigate(`/movies/${movie.id}`)}
+        onOpenMovie={(movie) =>
+          navigate(`/movies/${movie.id}`, {
+            state: { from: location.pathname + location.search },
+          })
+        }
       />
       <div className="back-home">
         <Link to="/" className="btn btn--primary">
