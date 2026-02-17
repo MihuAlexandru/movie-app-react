@@ -22,6 +22,7 @@ export default function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const { ids: watchlist, has, toggle } = useWatchlist();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     let mounted = true;
@@ -62,8 +63,6 @@ export default function App() {
   };
 
   const openMovie = useCallback((movie) => setSelectedMovie(movie), []);
-
-  const location = useLocation();
 
   const closeMovie = useCallback(() => {
     setSelectedMovie(null);

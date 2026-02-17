@@ -31,7 +31,7 @@ export default function MovieDetails({ movie, hasWatch, onToggleWatch }) {
 
       <div className="movie-details__actions">
         <button
-          className="btn btn--primary"
+          className={`btn ${hasWatch?.(id) ? "btn--secondary" : "btn--primary"}`}
           onClick={() => onToggleWatch?.(id)}
         >
           {hasWatch?.(id) ? "Remove from Watchlist" : "Add to Watchlist"}

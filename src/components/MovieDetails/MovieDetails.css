@@ -27,10 +27,24 @@
 .movie-details__actions {
   margin-top: 1rem;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   gap: 0.5rem;
 }
 
 .hidden {
   display: none !important;
+}
+
+@media (max-width: 430px) {
+  .movie-details__header {
+    flex-direction: column;
+  }
+
+  .movie-details__poster {
+    align-self: center;
+  }
+
+  .movie-details__title {
+    text-align: center;
+  }
 }
