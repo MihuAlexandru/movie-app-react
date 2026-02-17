@@ -4,7 +4,7 @@ export default function GenreFilter({ genres, selected, onChange }) {
     <div className="genre-filter" role="group" aria-label="Filter by genre">
       <button
         type="button"
-        className={`chip ${selected === null ? "chip--active" : ""}`}
+        className={`chip ${!selected ? "chip--active" : ""}`}
         onClick={() => onChange(null)}
       >
         All

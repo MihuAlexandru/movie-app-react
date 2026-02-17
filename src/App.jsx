@@ -1,20 +1,21 @@
 import { useEffect, useState, useCallback } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { fetchMovies } from "./api/moviesApi";
 import Home from "./pages/Home/Home";
 import Watchlist from "./pages/Watchlist/Watchlist";
 import useWatchlist from "./hooks/useWatchList";
-import NavBar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
 import MovieDetails from "./components/MovieDetails/MovieDetails";
+import Layout from "./pages/Layout";
+import MovieDetailPage from "./pages/MovieDetailPage";
 
 export default function App() {
   const [status, setStatus] = useState("idle");
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
   const { ids: watchlist, has, toggle } = useWatchlist();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let mounted = true;
@@ -55,42 +56,53 @@ export default function App() {
   };
 
   const openMovie = useCallback((movie) => setSelectedMovie(movie), []);
-  const closeMovie = useCallback(() => setSelectedMovie(null), []);
+
+  const closeMovie = useCallback(() => {
+    setSelectedMovie(null);
+    navigate(-1);
+  }, [navigate]);
 
   return (
     <div className="app">
-      <NavBar watchlistCount={watchlist.length} />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              movies={movies}
-              status={status}
-              error={error}
-              onRetry={retry}
-              hasWatch={has}
-              onToggleWatch={toggle}
-              onOpenMovie={openMovie}
-            />
-          }
-        />
-        <Route
-          path="/watchlist"
-          element={
-            <Watchlist
-              movies={movies}
-              status={status}
-              error={error}
-              onRetry={retry}
-              watchlistIds={watchlist}
-              hasWatch={has}
-              onToggleWatch={toggle}
-              onOpenMovie={openMovie}
-            />
-          }
-        />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route element={<Layout />}>
+          <Route
+            path="/movies"
+            element={
+              <Home
+                movies={movies}
+                status={status}
+                error={error}
+                onRetry={retry}
+                hasWatch={has}
+                onToggleWatch={toggle}
+                onOpenMovie={openMovie}
+              />
+            }
+          />
+          <Route
+            path="/movies/:id"
+            element={
+              <MovieDetailPage movies={movies} onOpenMovie={openMovie} />
+            }
+          />
+          <Route
+            path="/watchlist"
+            element={
+              <Watchlist
+                movies={movies}
+                status={status}
+                error={error}
+                onRetry={retry}
+                watchlistIds={watchlist}
+                hasWatch={has}
+                onToggleWatch={toggle}
+                onOpenMovie={openMovie}
+              />
+            }
+          />
+          <Route path="*" element={<Navigate to="/movies" replace />} />
+        </Route>
       </Routes>
       <Modal
         isOpen={!!selectedMovie}

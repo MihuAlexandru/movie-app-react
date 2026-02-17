@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import MovieList from "../../components/MovieList/MovieList";
 import ErrorState from "../../components/ErrorState";
 import EmptyState from "../../components/EmptyState";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Watchlist.css";
 export default function Watchlist({
   movies,
@@ -12,8 +12,8 @@ export default function Watchlist({
   watchlistIds,
   hasWatch,
   onToggleWatch,
-  onOpenMovie,
 }) {
+  const navigate = useNavigate();
   const list = useMemo(
     () => movies.filter((m) => watchlistIds.includes(m.id)),
     [movies, watchlistIds],
@@ -50,7 +50,7 @@ export default function Watchlist({
         movies={list}
         isInWatchlist={hasWatch}
         onToggleWatchlist={onToggleWatch}
-        onOpenMovie={onOpenMovie}
+        onOpenMovie={(movie) => navigate(`/movies/${movie.id}`)}
       />
       <div className="back-home">
         <Link to="/" className="btn btn--primary">

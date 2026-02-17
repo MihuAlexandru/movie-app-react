@@ -7,7 +7,7 @@ export default function NavBar({ watchlistCount = 0 }) {
       <div className="nav__brand">Movies</div>
       <div className="nav__links">
         <NavLink
-          to="/"
+          to="/movies"
           end
           className={({ isActive }) => (isActive ? "active" : "")}
         >
